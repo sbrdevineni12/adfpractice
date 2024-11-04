@@ -1,0 +1,9 @@
+{
+	"name": "DSRDF2024",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "71deb61a-dd3a-4563-ae0e-92c838c7220e",
+		"tenantId": "52e704b2-5f22-485a-a489-a1ba02dd515f"
+	}
+}
