@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "DSRDF2024"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"adfsqldb_password": {
+			"value": ""
+		},
+		"adfsqldb_properties_typeProperties_server": {
+			"value": "adfsql2024.database.windows.net"
+		},
+		"adfsqldb_properties_typeProperties_database": {
+			"value": "adf_sql"
+		},
+		"adfsqldb_properties_typeProperties_userName": {
+			"value": "sdevineni"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DSRDF2024"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"adfsqldb_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'adfsqldb'"
+		},
+		"adfsqldb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "adfsql2024.database.windows.net"
+		},
+		"adfsqldb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "adf_sql"
+		},
+		"adfsqldb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sdevineni"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DSRDF2024_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"adfsqldb_password": {
+						"value": "[parameters('adfsqldb_password')]"
+					},
+					"adfsqldb_properties_typeProperties_server": {
+						"value": "[parameters('adfsqldb_properties_typeProperties_server')]"
+					},
+					"adfsqldb_properties_typeProperties_database": {
+						"value": "[parameters('adfsqldb_properties_typeProperties_database')]"
+					},
+					"adfsqldb_properties_typeProperties_userName": {
+						"value": "[parameters('adfsqldb_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
